@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Custom CSS for additional styling -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;600&display=swap');
+
+        body {
+            background-image: url('static/images/about.jpg');
+            background-size: cover;
+            background-position: center;
+            font-family: 'Google Sans', sans-serif;
+        }
+        .navbar {
+            background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+        }
+        .content {
+            max-width: 400px; /* Reduced size */
+            margin: 20px;
+            padding: 20px;
+            background-color: transparent; /* Transparent background */
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 1.5s ease-in-out, opacity 1.5s ease-in-out;
+            opacity: 0;
+            position: absolute;
+        }
+        .content.visible {
+            opacity: 0.95;
+            background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+        }
+        .content:nth-child(odd) {
+            right: 0;
+            transform: translateX(100%);
+        }
+        .content:nth-child(even) {
+            left: 0;
+            transform: translateX(-100%);
+        }
+        .content.visible:nth-child(odd) {
+            transform: translateX(-20%);
+        }
+        .content.visible:nth-child(even) {
+            transform: translateX(20%);
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="#">WineXpert Solutions</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/about">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/predict">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/contact">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="content" id="content1">
+            <h2>About Us</h2>
+            <p>At Wine Quality Prediction, we specialize in using advanced data analytics and machine learning techniques to predict the quality and age of wine based on user input data. Our innovative approach combines expertise in oenology with cutting-edge technology to deliver accurate and reliable predictions that help wine enthusiasts and professionals make informed decisions.</p>
+        </div>
+        <div class="content" id="content2">
+            <h2>Our Vision</h2>
+            <p>Our vision is to revolutionize the wine industry by providing accessible and precise quality and age predictions for wines. We aim to empower winemakers, distributors, and consumers with the tools they need to understand and appreciate wine better, ultimately enhancing the overall wine experience.</p>
+        </div>
+        <div class="content" id="content3">
+            <h2>Our Services</h2>
+            <p>We offer a comprehensive suite of services designed to meet the needs of our diverse clientele. Our primary service is the Wine Quality and Age Prediction system, which utilizes sophisticated algorithms to analyze various factors such as chemical composition and sensory attributes to predict the quality and age of wine. Additionally, we provide personalized recommendations and insights based on the analysis to help our clients optimize their wine selection and production processes.</p>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const contents = document.querySelectorAll('.content');
+            contents.forEach((content, index) => {
+                setTimeout(() => {
+                    content.classList.add('visible');
+                }, index * 1500); // Adjust the delay for slower motion
+            });
+        });
+    </script>
+</body>
+</html>
